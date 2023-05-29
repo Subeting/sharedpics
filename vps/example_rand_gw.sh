@@ -1,6 +1,8 @@
 #!/bin/bash
 ###Please defind your gateway address here###
-target_gw=2222:2222::2222
+echo -n "Please define your gateway address:"
+read target_gw
+##target_gw=2222:2222::2222
 ###Please defind your main interface here ###
 #net_iface=ens18#Automatically determine your MAIN IFACE
 net_iface=$(ip r g 254.254.254.254|grep via|head -n 1|awk -v FS='dev ' '{print $2}'|cut -d ' ' -f 1)
